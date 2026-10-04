@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 500">
+  <rect width="720" height="500" rx="24" fill="#F0FBF6"/>
+  <circle cx="560" cy="110" r="130" fill="#DCF5E9"/>
+  <path d="M0 388c111-79 223-92 338-47s220 51 382-15v174H0z" fill="#E4F7ED"/>
+  <rect x="240" y="68" width="240" height="352" rx="20" fill="#ffffff" stroke="#C4ECD7" stroke-width="3"/>
+  <rect x="258" y="86" width="204" height="64" rx="10" fill="#0D9488"/>
+  <text x="360" y="125" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="3" fill="#ffffff" text-anchor="middle">VALENCE</text>
+  <rect x="274" y="180" width="85" height="7" rx="3" fill="#99F6E4"/>
+  <rect x="274" y="196" width="135" height="5" rx="2" fill="#CCFBF1"/>
+  <circle cx="360" cy="275" r="55" fill="#F0FDFA"/>
+  <path d="M340 255c0-10 15-20 20-20s20 10 20 20c0 15-15 25-15 35 0 8 5 12 10 12" fill="none" stroke="#0D9488" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="375" cy="302" r="4" fill="#0D9488"/>
+  <text x="360" y="375" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#115E59" text-anchor="middle">DIGESTIVE &amp; GASTRIC</text>
+  <rect x="110" y="190" width="60" height="26" rx="13" transform="rotate(-30 110 190)" fill="#14B8A6" opacity=".85"/>
+  <rect x="540" y="300" width="70" height="28" rx="14" transform="rotate(25 540 300)" fill="#F59E0B" opacity=".85"/>
+</svg>

@@ -1,0 +1,22 @@
+{
+  "short_name": "VALENCE",
+  "name": "VALENCE Indian Clinical Apothecary",
+  "description": "Precision Clinical Dispensary & Integrated Healthcare with genuine Indian formulations.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#092620",
+  "theme_color": "#092620",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

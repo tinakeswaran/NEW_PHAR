@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 500">
+  <rect width="720" height="500" rx="24" fill="#FAF5FF"/>
+  <circle cx="560" cy="110" r="130" fill="#F3E8FF"/>
+  <path d="M0 388c111-79 223-92 338-47s220 51 382-15v174H0z" fill="#E9D5FF"/>
+  <rect x="240" y="68" width="240" height="352" rx="20" fill="#ffffff" stroke="#D8B4FE" stroke-width="3"/>
+  <rect x="258" y="86" width="204" height="64" rx="10" fill="#9333EA"/>
+  <text x="360" y="125" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="3" fill="#ffffff" text-anchor="middle">VALENCE</text>
+  <rect x="274" y="180" width="85" height="7" rx="3" fill="#D8B4FE"/>
+  <rect x="274" y="196" width="135" height="5" rx="2" fill="#E9D5FF"/>
+  <circle cx="360" cy="275" r="55" fill="#FAF5FF"/>
+  <!-- Sparkle / Lotus icon -->
+  <path d="M360 240c0 20 15 35 35 35-20 0-35 15-35 35 0-20-15-35-35-35 20 0 35-15 35-35z" fill="#9333EA"/>
+  <text x="360" y="375" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#6B21A8" text-anchor="middle">SKIN &amp; DERMATOLOGY</text>
+  <rect x="110" y="190" width="60" height="26" rx="13" transform="rotate(-30 110 190)" fill="#A855F7" opacity=".85"/>
+  <rect x="540" y="300" width="70" height="28" rx="14" transform="rotate(25 540 300)" fill="#EC4899" opacity=".85"/>
+</svg>
