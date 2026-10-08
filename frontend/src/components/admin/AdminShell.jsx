@@ -113,7 +113,7 @@ export function AdminShell({ children }) {
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <div>
-                <span className="font-extrabold text-white text-base tracking-tight block">VALENCE</span>
+                <span className="font-extrabold text-white text-base tracking-tight block">PHARMED</span>
                 <span className="text-[9px] font-black uppercase tracking-widest text-mint-400 block">
                   Operations Suite
                 </span>
@@ -241,7 +241,7 @@ export function AdminShell({ children }) {
             <div className="w-72 bg-forest-950 text-sand-300 p-6 flex flex-col justify-between h-full shadow-2xl">
               <div className="space-y-6">
                 <div className="flex items-center justify-between pb-4 border-b border-forest-900">
-                  <span className="font-black text-white text-base">VALENCE Ops</span>
+                  <span className="font-black text-white text-base">PHARMED Ops</span>
                   <button onClick={() => setMobileNavOpen(false)} className="p-1 text-sand-400">
                     <X className="w-5 h-5" />
                   </button>

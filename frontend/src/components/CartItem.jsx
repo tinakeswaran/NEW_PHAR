@@ -13,8 +13,12 @@ export const CartItem = ({ item }) => {
       <div className="flex items-center gap-4 min-w-0">
         <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-sand-100/80 dark:bg-forest-950/60 p-2 border border-sand-200/70 dark:border-forest-800 flex-shrink-0 flex items-center justify-center">
           <img
-            src={medicine.imageUrl || '/products/daily-wellness.svg'}
+            src={medicine.imageUrl || '/images/medicines/placeholder.svg'}
             alt={medicine.name}
+            onError={(e) => {
+              e.target.onerror = null;
+              e.target.src = '/images/medicines/placeholder.svg';
+            }}
             className="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal"
           />
         </div>
@@ -24,11 +28,15 @@ export const CartItem = ({ item }) => {
             <span className="text-[10px] uppercase font-bold text-forest-700 dark:text-emerald-400 bg-sand-100 dark:bg-forest-950/80 px-2 py-0.5 rounded-md">
               {medicine.category?.name || 'Formulation'}
             </span>
-            {medicine.requiresPrescription && (
+            {medicine.requiresPrescription ? (
               <span className="inline-flex items-center gap-1 text-[10px] font-bold text-ochre-700 dark:text-ochre-400 bg-ochre-50 dark:bg-ochre-950/50 border border-ochre-200 dark:border-ochre-800 px-2 py-0.5 rounded-md">
                 <FileText className="w-3 h-3" /> Rx Required
               </span>
-            )}
+            ) : item.quantity > 100 ? (
+              <span className="inline-flex items-center gap-1 text-[10px] font-bold text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/50 border border-amber-200 dark:border-amber-800 px-2 py-0.5 rounded-md">
+                <FileText className="w-3 h-3" /> High Qty Rx Req (&gt;100)
+              </span>
+            ) : null}
           </div>
 
           <h4 className="font-extrabold text-forest-950 dark:text-sand-100 text-sm sm:text-base mt-1 truncate">
@@ -36,7 +44,7 @@ export const CartItem = ({ item }) => {
           </h4>
 
           <p className="text-xs text-sand-500 dark:text-sand-400 font-medium">
-            {medicine.brand || 'VALENCE'} • {formatINR(medicine.price)} per pack ({medicine.dosage || 'Standard'})
+            {medicine.brand || 'PHARMED'} • {formatINR(medicine.price)} per pack ({medicine.dosage || 'Standard'})
           </p>
         </div>
       </div>
@@ -56,9 +64,16 @@ export const CartItem = ({ item }) => {
             {item.quantity}
           </span>
           <button
-            onClick={() => updateQuantity(item.id, item.quantity + 1)}
+            onClick={() => {
+              if (item.quantity >= 200) {
+                alert('Maximum purchase limit is 200 units per order.');
+                return;
+              }
+              updateQuantity(item.id, item.quantity + 1);
+            }}
+            disabled={item.quantity >= 200}
             aria-label={`Increase ${medicine.name} quantity`}
-            className="w-7 h-7 rounded-full flex items-center justify-center text-forest-800 dark:text-sand-300 hover:bg-white dark:hover:bg-forest-800 hover:shadow-xs transition"
+            className="w-7 h-7 rounded-full flex items-center justify-center text-forest-800 dark:text-sand-300 hover:bg-white dark:hover:bg-forest-800 hover:shadow-xs transition disabled:opacity-40"
           >
             <Plus className="w-3.5 h-3.5" />
           </button>

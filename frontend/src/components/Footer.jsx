@@ -56,14 +56,14 @@ export const Footer = () => {
               <BrandLogo />
             </div>
             <p className="text-xs text-forest-700 dark:text-sand-400 max-w-sm leading-relaxed">
-              VALENCE is a modern clinical apothecary platform dedicated to transparent medication management, verified digital prescription workflows, and direct-to-patient home delivery.
+              PHARMED is India's trusted digital pharmacy and healthcare platform dedicated to transparent medication management, verified digital prescription workflows, and direct-to-patient home delivery.
             </p>
             <div className="flex items-center gap-3 text-xs text-forest-600 dark:text-sand-400">
               <span className="flex items-center gap-1.5 font-bold text-forest-900 dark:text-mint-400">
-                <HeartPulse className="w-4 h-4 text-emerald-600 dark:text-mint-400" /> Licensed Dispensary Hub
+                <HeartPulse className="w-4 h-4 text-emerald-600 dark:text-mint-400" /> Licensed Pharmacy Network
               </span>
               <span>•</span>
-              <span>Available Nationwide</span>
+              <span>Pan-India Delivery</span>
             </div>
           </div>
 
@@ -73,7 +73,7 @@ export const Footer = () => {
             <ul className="space-y-3 text-xs">
               <li>
                 <Link to="/medicines" className="text-forest-700 dark:text-sand-400 hover:text-forest-950 dark:hover:text-mint-300 transition flex items-center justify-between">
-                  <span>All Formulations</span>
+                  <span>All Medicines</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
                 </Link>
               </li>
@@ -122,7 +122,7 @@ export const Footer = () => {
               </li>
               <li>
                 <Link to="/cart" className="text-forest-700 dark:text-sand-400 hover:text-forest-950 dark:hover:text-mint-300 transition">
-                  Order Basket
+                  Shopping Basket
                 </Link>
               </li>
             </ul>
@@ -130,15 +130,15 @@ export const Footer = () => {
 
           {/* Operations & Standards */}
           <div>
-            <h4 className="text-xs font-black uppercase tracking-wider text-forest-950 dark:text-sand-100 mb-4">Operations</h4>
+            <h4 className="text-xs font-black uppercase tracking-wider text-forest-950 dark:text-sand-100 mb-4">Support & Contact</h4>
             <ul className="space-y-3 text-xs text-forest-700 dark:text-sand-400">
               <li className="leading-relaxed">
-                Central Clinical Fulfillment
-                <span className="block text-[11px] text-forest-600 dark:text-sand-500">Facility ID: VAL-DISP-8081</span>
+                Central Pharmacy Fulfillment
+                <span className="block text-[11px] text-forest-600 dark:text-sand-500">Facility ID: PHARMED-DISP-8081</span>
               </li>
               <li className="pt-2">
-                <span className="block font-bold text-forest-900 dark:text-sand-200">Patient Helpline</span>
-                <span className="text-[11px] text-forest-600 dark:text-sand-400">support@valencehealth.com</span>
+                <span className="block font-bold text-forest-900 dark:text-sand-200">24/7 Patient Helpline</span>
+                <span className="text-[11px] text-forest-600 dark:text-sand-400">support@pharmed.in</span>
               </li>
             </ul>
           </div>
@@ -146,9 +146,9 @@ export const Footer = () => {
 
         {/* Bottom Disclaimer */}
         <div className="pt-12 mt-12 border-t border-sand-200 dark:border-forest-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-forest-600 dark:text-sand-500">
-          <p>© {new Date().getFullYear()} VALENCE Clinical Health Technologies. Formulations dispensed by registered pharmacy professionals.</p>
-          <div className="flex items-center gap-6">
-            <span>Prescription Aware</span>
+          <p>© {new Date().getFullYear()} PHARMED Healthcare Technologies. Genuine medicines dispensed by registered pharmacy professionals.</p>
+          <div className="flex items-center gap-6 font-medium">
+            <span>Prescription Verified</span>
             <span>Batch Tested</span>
             <span>Good Pharmacy Practice (GPP)</span>
           </div>

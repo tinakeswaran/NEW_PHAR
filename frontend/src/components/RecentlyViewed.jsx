@@ -62,8 +62,12 @@ export const RecentlyViewed = ({ currentId = null }) => {
                 className="block aspect-square rounded-xl bg-sand-100/70 dark:bg-forest-950/60 p-2.5 mb-2.5 overflow-hidden"
               >
                 <img
-                  src={item.imageUrl || '/products/daily-wellness.svg'}
+                  src={item.imageUrl || '/images/medicines/placeholder.svg'}
                   alt={item.name}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = '/images/medicines/placeholder.svg';
+                  }}
                   className="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform duration-300"
                 />
               </Link>

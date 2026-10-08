@@ -165,15 +165,15 @@ export function Drawer({ open, title, subtitle, onClose, children, footer, width
   const widthClass = width === 'large' ? 'max-w-2xl' : 'max-w-lg';
 
   return (
-    <div className="fixed inset-0 z-50 flex justify-end bg-forest-950/60 backdrop-blur-sm animate-fade-in" role="presentation" onMouseDown={(e) => e.target === e.currentTarget && onClose()}>
+    <div className="fixed inset-0 z-50 flex items-center justify-center sm:justify-end p-2 sm:p-4 bg-forest-950/60 backdrop-blur-sm animate-fade-in" role="presentation" onMouseDown={(e) => e.target === e.currentTarget && onClose()}>
       <section
         ref={panelRef}
         tabIndex={-1}
-        className={`w-full ${widthClass} h-full bg-white dark:bg-forest-950 text-forest-950 dark:text-sand-100 shadow-2xl flex flex-col justify-between overflow-hidden border-l border-sand-200 dark:border-forest-800 outline-none`}
+        className={`w-full ${widthClass} max-h-[90vh] h-[90vh] bg-white dark:bg-forest-950 text-forest-950 dark:text-sand-100 shadow-2xl flex flex-col justify-between overflow-hidden rounded-3xl border border-sand-200 dark:border-forest-800 outline-none`}
         role="dialog"
         aria-modal="true"
       >
-        <header className="px-6 py-5 border-b border-sand-200 dark:border-forest-800 flex items-center justify-between bg-sand-50/50 dark:bg-forest-900/40">
+        <header className="px-6 py-4 border-b border-sand-200 dark:border-forest-800 flex items-center justify-between bg-sand-50/50 dark:bg-forest-900/40 flex-shrink-0">
           <div>
             <h2 className="text-lg font-black text-forest-950 dark:text-white">{title}</h2>
             {subtitle && <p className="text-xs text-sand-500 dark:text-sand-400 font-medium">{subtitle}</p>}
@@ -189,7 +189,11 @@ export function Drawer({ open, title, subtitle, onClose, children, footer, width
 
         <div className="p-6 overflow-y-auto flex-1 space-y-4">{children}</div>
 
-        {footer && <footer className="p-5 border-t border-sand-200 dark:border-forest-800 bg-sand-50/60 dark:bg-forest-900/40 flex justify-end gap-3">{footer}</footer>}
+        {footer && (
+          <footer className="p-4 border-t border-sand-200 dark:border-forest-800 bg-sand-50/90 dark:bg-forest-950/90 backdrop-blur-md sticky bottom-0 z-10 flex justify-end gap-3 flex-shrink-0">
+            {footer}
+          </footer>
+        )}
       </section>
     </div>
   );

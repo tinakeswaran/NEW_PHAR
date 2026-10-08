@@ -210,8 +210,12 @@ export const SearchBar = ({ onSearch, categories = [], initialQuery = '', initia
                     <div className="flex items-center gap-3 min-w-0">
                       <div className="w-9 h-9 rounded-lg bg-sand-100 dark:bg-forest-950 p-1 flex-shrink-0 border border-sand-200 dark:border-forest-800 flex items-center justify-center">
                         <img
-                          src={med.imageUrl || '/products/daily-wellness.svg'}
+                          src={med.imageUrl || '/images/medicines/placeholder.svg'}
                           alt={med.name}
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = '/images/medicines/placeholder.svg';
+                          }}
                           className="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal"
                         />
                       </div>
@@ -227,7 +231,7 @@ export const SearchBar = ({ onSearch, categories = [], initialQuery = '', initia
                           )}
                         </div>
                         <p className="text-[11px] text-sand-500 dark:text-sand-400 truncate">
-                          {med.brand || 'VALENCE'} • {med.composition || med.dosage}
+                          {med.brand || 'PHARMED'} • {med.composition || med.dosage}
                         </p>
                       </div>
                     </div>

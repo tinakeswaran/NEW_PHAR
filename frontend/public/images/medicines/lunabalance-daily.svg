@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#23101c" />
+      <stop offset="100%" stop-color="#0e050b" />
+    </linearGradient>
+    <linearGradient id="bottleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#880e4f" />
+      <stop offset="30%" stop-color="#ad1457" />
+      <stop offset="70%" stop-color="#880e4f" />
+      <stop offset="100%" stop-color="#4a0072" />
+    </linearGradient>
+    <linearGradient id="capGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f8bbd0" />
+      <stop offset="100%" stop-color="#f48fb1" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" rx="32" fill="url(#bgGrad)" />
+  <circle cx="200" cy="220" r="140" fill="#ad1457" opacity="0.15" />
+
+  <g filter="url(#shadow)">
+    <!-- Cap -->
+    <rect x="150" y="70" width="100" height="36" rx="6" fill="url(#capGrad)" />
+    <rect x="144" y="102" width="112" height="14" rx="3" fill="#ec407a" opacity="0.8" />
+    
+    <!-- Bottle Neck -->
+    <rect x="156" y="112" width="88" height="20" fill="#4a0072" />
+    
+    <!-- Bottle Body -->
+    <rect x="120" y="130" width="160" height="200" rx="24" fill="url(#bottleGrad)" />
+    
+    <!-- Label -->
+    <rect x="126" y="160" width="148" height="145" rx="12" fill="#ffffff" />
+    
+    <!-- Label Top Banner -->
+    <rect x="126" y="160" width="148" height="36" rx="12" fill="#23101c" />
+    <text x="200" y="183" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="13" font-weight="900" fill="#f8bbd0" text-anchor="middle" letter-spacing="1">LUNABALANCE</text>
+    
+    <!-- Title -->
+    <text x="200" y="216" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="19" font-weight="900" fill="#880e4f" text-anchor="middle">LunaBalance</text>
+    <text x="200" y="234" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="12" font-weight="700" fill="#ad1457" text-anchor="middle">DAILY WOMEN'S CARE</text>
+    
+    <!-- Crescent Moon Emblem -->
+    <path d="M205 248 C195 248 188 255 188 265 C188 275 195 282 205 282 C198 280 194 274 194 265 C194 256 198 250 205 248 Z" fill="#ad1457" />
+    
+    <!-- Footer text -->
+    <text x="200" y="296" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="800" fill="#23101c" text-anchor="middle">30 BOTANICAL TABLETS</text>
+  </g>
+</svg>

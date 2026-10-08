@@ -25,20 +25,20 @@ import {
 export function BrandLogo({ compact = false, to = '/' }) {
   return (
     <Link to={to} className="flex items-center gap-3 group">
-      <div className="relative flex items-center justify-center w-9 h-9 rounded-xl bg-forest-900 dark:bg-emerald-600 text-mint-400 dark:text-forest-950 shadow-md border border-forest-800 dark:border-emerald-500 transition-transform duration-300 group-hover:scale-105">
-        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+      <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-forest-900 dark:bg-emerald-600 text-mint-400 dark:text-forest-950 shadow-md border border-forest-800 dark:border-emerald-500 transition-transform duration-300 group-hover:scale-105">
+        <svg className="w-5.5 h-5.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M4 4l8 16 8-16" />
           <circle cx="12" cy="7" r="1.8" fill="#F59E0B" stroke="none" />
         </svg>
       </div>
       <div className="flex flex-col">
-        <span className="font-extrabold tracking-tight text-forest-950 dark:text-sand-100 text-lg leading-tight flex items-center gap-1.5">
-          VALENCE
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block"></span>
+        <span className="font-black tracking-tight text-forest-950 dark:text-sand-100 text-xl leading-none flex items-center gap-1.5">
+          PHARMED
+          <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
         </span>
         {!compact && (
-          <span className="text-[9.5px] uppercase font-bold tracking-[0.14em] text-forest-700/80 dark:text-emerald-400">
-            Clinical Apothecary • India
+          <span className="text-[10px] font-extrabold uppercase tracking-[0.14em] text-forest-700 dark:text-emerald-400 mt-0.5">
+            Trusted Healthcare
           </span>
         )}
       </div>

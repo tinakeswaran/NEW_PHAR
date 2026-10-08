@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1b2a26" />
+      <stop offset="100%" stop-color="#0f1916" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="32" fill="url(#bgGrad)" />
+  <g transform="translate(150, 130)">
+    <path d="M50 0 C22.4 0 0 22.4 0 50 C0 85 50 130 50 130 C50 130 100 85 100 50 C100 22.4 77.6 0 50 0 Z" fill="#2d6a4f" opacity="0.4" />
+    <!-- Mortar & Pestle icon -->
+    <path d="M30 40 L70 40 L65 75 C65 80 58 85 50 85 C42 85 35 80 35 75 Z" fill="#ffffff" opacity="0.9" />
+    <path d="M60 25 L40 50" stroke="#10b981" stroke-width="6" stroke-linecap="round" />
+  </g>
+  <text x="200" y="300" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="14" font-weight="800" fill="#a7f3d0" text-anchor="middle">VALENCE PHARMACY</text>
+  <text x="200" y="320" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="11" font-weight="600" fill="#6ee7b7" text-anchor="middle">Clinical Formulation Asset</text>
+</svg>

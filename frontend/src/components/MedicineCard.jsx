@@ -51,8 +51,12 @@ export const MedicineCard = ({ medicine }) => {
           className="relative block w-full h-52 bg-sand-100/70 dark:bg-forest-950/50 rounded-2xl overflow-hidden p-4 mb-4 border border-sand-200/60 dark:border-forest-800/50 group-hover:bg-sand-100 dark:group-hover:bg-forest-950/80 transition duration-300"
         >
           <img
-            src={medicine.imageUrl || '/products/daily-wellness.svg'}
+            src={medicine.imageUrl || '/images/medicines/placeholder.svg'}
             alt={medicine.name}
+            onError={(e) => {
+              e.target.onerror = null;
+              e.target.src = '/images/medicines/placeholder.svg';
+            }}
             className="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform duration-500 ease-out"
             loading="lazy"
           />
@@ -130,7 +134,7 @@ export const MedicineCard = ({ medicine }) => {
 
         {/* Composition / Brand Subtitle */}
         <p className="text-xs text-sand-600 dark:text-sand-400 mt-1 line-clamp-1 font-medium">
-          {medicine.brand || 'VALENCE Clinical'} • {medicine.composition || 'Active Compound'}
+          {medicine.brand || 'PHARMED Healthcare'} • {medicine.composition || 'Active Compound'}
         </p>
 
         {/* Description snippet */}

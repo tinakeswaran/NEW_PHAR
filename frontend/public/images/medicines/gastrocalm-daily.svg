@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e2417" />
+      <stop offset="100%" stop-color="#050e09" />
+    </linearGradient>
+    <linearGradient id="bottleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2e7d32" />
+      <stop offset="30%" stop-color="#43a047" />
+      <stop offset="70%" stop-color="#2e7d32" />
+      <stop offset="100%" stop-color="#1b5e20" />
+    </linearGradient>
+    <linearGradient id="capGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#c8e6c9" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" rx="32" fill="url(#bgGrad)" />
+  <circle cx="200" cy="220" r="130" fill="#43a047" opacity="0.12" />
+
+  <g filter="url(#shadow)">
+    <!-- Cap -->
+    <rect x="150" y="70" width="100" height="36" rx="6" fill="url(#capGrad)" />
+    <rect x="144" y="102" width="112" height="14" rx="3" fill="#a5d6a7" />
+    
+    <!-- Bottle Neck -->
+    <rect x="156" y="112" width="88" height="20" fill="#1b5e20" />
+    
+    <!-- Bottle Body -->
+    <rect x="120" y="130" width="160" height="200" rx="24" fill="url(#bottleGrad)" />
+    
+    <!-- Label -->
+    <rect x="126" y="160" width="148" height="145" rx="12" fill="#ffffff" />
+    
+    <!-- Label Top Banner -->
+    <rect x="126" y="160" width="148" height="36" rx="12" fill="#0e2417" />
+    <text x="200" y="183" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="14" font-weight="900" fill="#a5d6a7" text-anchor="middle" letter-spacing="1">COREKIND</text>
+    
+    <!-- Title -->
+    <text x="200" y="216" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="19" font-weight="900" fill="#1b5e20" text-anchor="middle">GastroCalm</text>
+    <text x="200" y="234" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="12" font-weight="700" fill="#43a047" text-anchor="middle">DAILY DIGESTIVE CARE</text>
+    
+    <!-- Capsule Icon -->
+    <g transform="translate(182, 248)">
+      <rect x="0" y="0" width="36" height="16" rx="8" fill="#2e7d32" />
+      <path d="M18 0 H36 V16 H18 Z" fill="#81c784" />
+      <rect x="0" y="0" width="36" height="16" rx="8" fill="none" stroke="#1b5e20" stroke-width="1.5" />
+    </g>
+    
+    <!-- Footer text -->
+    <text x="200" y="294" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="800" fill="#0e2417" text-anchor="middle">30 BOTANICAL CAPSULES</text>
+  </g>
+</svg>

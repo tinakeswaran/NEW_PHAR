@@ -11,7 +11,9 @@ import {
   AlertCircle, 
   RotateCcw,
   CheckCircle2,
-  Tag
+  Tag,
+  Image,
+  Upload
 } from 'lucide-react';
 import { adminService } from '../../services/adminService';
 import { medicineService } from '../../services/medicineService';
@@ -268,15 +270,19 @@ export const AdminMedicines = () => {
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-xl bg-sand-100 dark:bg-forest-800 p-1 border border-sand-200 dark:border-forest-700 flex-shrink-0 flex items-center justify-center">
                           <img
-                            src={medicine.imageUrl || '/products/daily-wellness.svg'}
+                            src={medicine.imageUrl || '/images/medicines/placeholder.svg'}
                             alt={medicine.name}
+                            onError={(e) => {
+                              e.target.onerror = null;
+                              e.target.src = '/images/medicines/placeholder.svg';
+                            }}
                             className="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal"
                           />
                         </div>
                         <div>
                           <strong className="font-bold text-forest-950 dark:text-white block text-xs">{medicine.name}</strong>
                           <span className="text-[11px] text-sand-500 dark:text-sand-400 font-medium">
-                            {medicine.brand || 'VALENCE'} • {medicine.dosage || 'Standard'}
+                            {medicine.brand || 'PHARMED'} • {medicine.dosage || 'Standard'}
                           </span>
                         </div>
                       </div>
@@ -371,9 +377,10 @@ export const AdminMedicines = () => {
               Cancel
             </button>
             <button
-              onClick={saveMedicine}
+              type="submit"
+              form="medicine-form"
               disabled={saving}
-              className="px-5 py-2 rounded-xl bg-forest-900 dark:bg-forest-800 text-sand-50 text-xs font-bold hover:bg-forest-800 dark:hover:bg-forest-700 transition"
+              className="px-5 py-2.5 rounded-xl bg-forest-900 hover:bg-forest-800 dark:bg-emerald-600 dark:hover:bg-emerald-500 text-sand-50 dark:text-forest-950 text-xs font-bold transition shadow-sm disabled:opacity-50"
             >
               {saving ? 'Committing…' : editingId ? 'Update Formulation' : 'Create Formulation'}
             </button>
@@ -386,7 +393,7 @@ export const AdminMedicines = () => {
           </div>
         )}
 
-        <form onSubmit={saveMedicine} className="space-y-4 text-xs">
+        <form id="medicine-form" onSubmit={saveMedicine} className="space-y-4 text-xs">
           <div className="space-y-1">
             <label className="font-bold text-forest-900 dark:text-sand-200 block">Medication Name</label>
             <input
@@ -498,6 +505,74 @@ export const AdminMedicines = () => {
               onChange={(e) => setFormData({ ...formData, description: e.target.value })}
               className="w-full bg-sand-50 dark:bg-forest-900/60 p-2.5 rounded-xl border border-sand-200 dark:border-forest-800 text-forest-950 dark:text-sand-100 placeholder-sand-400 dark:placeholder-forest-500 outline-none"
             />
+          </div>
+
+          {/* Image Management & Preview Section */}
+          <div className="p-3.5 bg-sand-50 dark:bg-forest-900/60 rounded-2xl border border-sand-200 dark:border-forest-800 space-y-3">
+            <div className="flex items-center justify-between">
+              <label className="font-bold text-forest-900 dark:text-sand-200 text-xs flex items-center gap-1.5">
+                <Image size={14} className="text-emerald-500" />
+                <span>Formulation Image & Asset</span>
+              </label>
+              <span className="text-[10px] text-sand-500 dark:text-sand-400">Live Preview & Asset Path</span>
+            </div>
+
+            <div className="flex items-start gap-4">
+              {/* Image Thumbnail Preview */}
+              <div className="w-20 h-20 rounded-2xl bg-white dark:bg-forest-950 p-2 border border-sand-300 dark:border-forest-700 flex-shrink-0 flex items-center justify-center overflow-hidden shadow-xs relative">
+                <img
+                  src={formData.imageUrl || '/images/medicines/placeholder.svg'}
+                  alt="Preview"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = '/images/medicines/placeholder.svg';
+                  }}
+                  className="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal"
+                />
+              </div>
+
+              <div className="flex-1 space-y-2">
+                <input
+                  type="text"
+                  value={formData.imageUrl}
+                  onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
+                  placeholder="e.g. /images/medicines/vitacore-daily.svg or image URL"
+                  className="w-full bg-white dark:bg-forest-950 p-2 rounded-xl border border-sand-300 dark:border-forest-700 text-xs text-forest-950 dark:text-sand-100 placeholder-sand-400 dark:placeholder-forest-500 outline-none"
+                />
+
+                <div className="flex items-center gap-2 flex-wrap">
+                  <label className="px-3 py-1.5 rounded-xl bg-forest-900 dark:bg-emerald-600 text-sand-50 dark:text-forest-950 text-[11px] font-bold cursor-pointer hover:opacity-90 transition flex items-center gap-1 shadow-xs">
+                    <Upload size={12} />
+                    <span>Upload / Choose Image File</span>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      className="hidden"
+                      onChange={(e) => {
+                        const file = e.target.files[0];
+                        if (file) {
+                          const reader = new FileReader();
+                          reader.onload = (evt) => {
+                            setFormData({ ...formData, imageUrl: evt.target.result });
+                          };
+                          reader.readAsDataURL(file);
+                        }
+                      }}
+                    />
+                  </label>
+
+                  {formData.imageUrl && (
+                    <button
+                      type="button"
+                      onClick={() => setFormData({ ...formData, imageUrl: '' })}
+                      className="px-2.5 py-1.5 rounded-xl text-[11px] font-bold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-900/50 hover:bg-rose-100 transition"
+                    >
+                      Reset Image
+                    </button>
+                  )}
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="pt-2">

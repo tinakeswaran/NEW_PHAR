@@ -6,7 +6,7 @@
 -- The procedure verifies both this explicit session confirmation and the target
 -- database name before opening a transaction. It preserves every ROLE_ADMIN row.
 
-USE NEW_PHAR;
+USE epharmacy;
 
 DROP PROCEDURE IF EXISTS reset_pharmavital_local_demo;
 DELIMITER $$
@@ -19,10 +19,10 @@ BEGIN
         RESIGNAL;
     END;
 
-    IF DATABASE() <> 'NEW_PHAR'
+    IF DATABASE() <> 'epharmacy'
        OR COALESCE(@PHARMAVITAL_LOCAL_DEMO_RESET, '') <> 'YES_RESET_LOCAL_DEMO_ONLY' THEN
         SIGNAL SQLSTATE '45000'
-            SET MESSAGE_TEXT = 'Reset refused: select NEW_PHAR and explicitly confirm local demo reset in this session.';
+            SET MESSAGE_TEXT = 'Reset refused: select epharmacy and explicitly confirm local demo reset in this session.';
     END IF;
 
     SELECT COUNT(*) INTO admin_count FROM users WHERE role = 'ROLE_ADMIN';
@@ -64,20 +64,20 @@ BEGIN
     INSERT INTO medicines
       (name, brand, composition, dosage, description, price, stock_quantity, category_id, requires_prescription, ailment, image_url, created_at, updated_at)
     VALUES
-      ('VitaCore Daily', 'VitaCore', 'Demo botanical blend', '30 tablets', 'Fictional demonstration wellness product. Not intended for diagnosis or treatment.', 18.50, 84, (SELECT id FROM categories WHERE name = 'Daily Wellness'), FALSE, 'Daily wellness', '/products/daily-wellness.svg', NOW(), NOW()),
-      ('Wellness D3', 'VitaCore', 'Demo nutrient blend', '60 softgels', 'Fictional demonstration nutrition product. Not intended for diagnosis or treatment.', 12.25, 112, (SELECT id FROM categories WHERE name = 'Daily Wellness'), FALSE, 'Daily wellness', '/products/daily-wellness.svg', NOW(), NOW()),
-      ('RespiraEase Mist', 'Airwell', 'Demo saline blend', '100 ml', 'Fictional demonstration personal care product. Follow the product label.', 9.90, 46, (SELECT id FROM categories WHERE name = 'Respiratory Care'), FALSE, 'Respiratory care', '/products/respiratory-care.svg', NOW(), NOW()),
-      ('RespiraEase Rx', 'Airwell', 'Demonstration formulation', '20 capsules', 'Fictional prescription-only demo item for workflow demonstrations; not a real medicine.', 24.00, 28, (SELECT id FROM categories WHERE name = 'Respiratory Care'), TRUE, 'Respiratory care', '/products/respiratory-care.svg', NOW(), NOW()),
-      ('GastroCalm Balance', 'CoreKind', 'Demo fiber blend', '30 sachets', 'Fictional demonstration wellness product. Not intended for diagnosis or treatment.', 16.75, 57, (SELECT id FROM categories WHERE name = 'Digestive Health'), FALSE, 'Digestive health', '/products/digestive-health.svg', NOW(), NOW()),
-      ('GastroCalm Daily', 'CoreKind', 'Demo botanical blend', '30 capsules', 'Fictional demonstration wellness product. Not intended for diagnosis or treatment.', 14.40, 63, (SELECT id FROM categories WHERE name = 'Digestive Health'), FALSE, 'Digestive health', '/products/digestive-health.svg', NOW(), NOW()),
-      ('DermaShield Lotion', 'DermaShield', 'Demo skin-care blend', '200 ml', 'Fictional demonstration personal care product. For display and workflow testing.', 21.00, 39, (SELECT id FROM categories WHERE name = 'Skin & Personal Care'), FALSE, 'Skin and personal care', '/products/skin-personal-care.svg', NOW(), NOW()),
-      ('DermaShield Cleanser', 'DermaShield', 'Demo skin-care blend', '150 ml', 'Fictional demonstration personal care product. For display and workflow testing.', 13.80, 5, (SELECT id FROM categories WHERE name = 'Skin & Personal Care'), FALSE, 'Skin and personal care', '/products/skin-personal-care.svg', NOW(), NOW()),
-      ('LunaBalance Daily', 'LunaBalance', 'Demo botanical blend', '30 tablets', 'Fictional demonstration wellness product. Not intended for diagnosis or treatment.', 19.50, 42, (SELECT id FROM categories WHERE name = 'Women''s Wellness'), FALSE, 'Women''s wellness', '/products/womens-wellness.svg', NOW(), NOW()),
-      ('LunaBalance Comfort', 'LunaBalance', 'Demonstration formulation', '20 capsules', 'Fictional prescription-only demo item for workflow demonstrations; not a real medicine.', 26.00, 18, (SELECT id FROM categories WHERE name = 'Women''s Wellness'), TRUE, 'Women''s wellness', '/products/womens-wellness.svg', NOW(), NOW()),
-      ('ForgeWell Active', 'ForgeWell', 'Demo nutrient blend', '30 sachets', 'Fictional demonstration nutrition product. Not intended for diagnosis or treatment.', 17.25, 35, (SELECT id FROM categories WHERE name = 'Men''s Wellness'), FALSE, 'Men''s wellness', '/products/mens-wellness.svg', NOW(), NOW()),
-      ('ForgeWell Hydration', 'ForgeWell', 'Demo electrolyte blend', '12 sachets', 'Fictional demonstration hydration product. Follow the product label.', 10.50, 76, (SELECT id FROM categories WHERE name = 'Men''s Wellness'), FALSE, 'Men''s wellness', '/products/mens-wellness.svg', NOW(), NOW()),
-      ('NutriBalance Daily', 'NutriBalance', 'Demo nutrient blend', '60 capsules', 'Fictional demonstration nutrition product. Not intended for diagnosis or treatment.', 22.80, 91, (SELECT id FROM categories WHERE name = 'Immunity & Nutrition'), FALSE, 'Immunity and nutrition', '/products/immunity-nutrition.svg', NOW(), NOW()),
-      ('HydraCare Mineral', 'HydraCare', 'Demo mineral blend', '20 sachets', 'Fictional demonstration hydration product. Follow the product label.', 11.60, 3, (SELECT id FROM categories WHERE name = 'Immunity & Nutrition'), FALSE, 'Immunity and nutrition', '/products/immunity-nutrition.svg', NOW(), NOW());
+      ('VitaCore Daily', 'VitaCore', 'Demo botanical blend', '30 tablets', 'Fictional demonstration wellness product. Not intended for diagnosis or treatment.', 249.00, 84, (SELECT id FROM categories WHERE name = 'Daily Wellness'), FALSE, 'Daily wellness', '/images/medicines/vitacore-daily.svg', NOW(), NOW()),
+      ('Wellness D3', 'VitaCore', 'Demo nutrient blend', '60 softgels', 'Fictional demonstration nutrition product. Not intended for diagnosis or treatment.', 199.00, 112, (SELECT id FROM categories WHERE name = 'Daily Wellness'), FALSE, 'Daily wellness', '/images/medicines/wellness-d3.svg', NOW(), NOW()),
+      ('RespiraEase Mist', 'Airwell', 'Demo saline blend', '100 ml', 'Fictional demonstration personal care product. Follow the product label.', 149.00, 46, (SELECT id FROM categories WHERE name = 'Respiratory Care'), FALSE, 'Respiratory care', '/images/medicines/respiraease-mist.svg', NOW(), NOW()),
+      ('RespiraEase Rx', 'Airwell', 'Demonstration formulation', '20 capsules', 'Fictional prescription-only demo item for workflow demonstrations; not a real medicine.', 299.00, 28, (SELECT id FROM categories WHERE name = 'Respiratory Care'), TRUE, 'Respiratory care', '/images/medicines/respiraease-rx.svg', NOW(), NOW()),
+      ('GastroCalm Balance', 'CoreKind', 'Demo fiber blend', '30 sachets', 'Fictional demonstration wellness product. Not intended for diagnosis or treatment.', 189.00, 57, (SELECT id FROM categories WHERE name = 'Digestive Health'), FALSE, 'Digestive health', '/images/medicines/gastrocalm-balance.svg', NOW(), NOW()),
+      ('GastroCalm Daily', 'CoreKind', 'Demo botanical blend', '30 capsules', 'Fictional demonstration wellness product. Not intended for diagnosis or treatment.', 159.00, 63, (SELECT id FROM categories WHERE name = 'Digestive Health'), FALSE, 'Digestive health', '/images/medicines/gastrocalm-daily.svg', NOW(), NOW()),
+      ('DermaShield Lotion', 'DermaShield', 'Demo skin-care blend', '200 ml', 'Fictional demonstration personal care product. For display and workflow testing.', 349.00, 39, (SELECT id FROM categories WHERE name = 'Skin & Personal Care'), FALSE, 'Skin and personal care', '/images/medicines/dermashield-lotion.svg', NOW(), NOW()),
+      ('DermaShield Cleanser', 'DermaShield', 'Demo skin-care blend', '150 ml', 'Fictional demonstration personal care product. For display and workflow testing.', 229.00, 5, (SELECT id FROM categories WHERE name = 'Skin & Personal Care'), FALSE, 'Skin and personal care', '/images/medicines/dermashield-cleanser.svg', NOW(), NOW()),
+      ('LunaBalance Daily', 'LunaBalance', 'Demo botanical blend', '30 tablets', 'Fictional demonstration wellness product. Not intended for diagnosis or treatment.', 279.00, 42, (SELECT id FROM categories WHERE name = 'Women''s Wellness'), FALSE, 'Women''s wellness', '/images/medicines/lunabalance-daily.svg', NOW(), NOW()),
+      ('LunaBalance Comfort', 'LunaBalance', 'Demonstration formulation', '20 capsules', 'Fictional prescription-only demo item for workflow demonstrations; not a real medicine.', 399.00, 18, (SELECT id FROM categories WHERE name = 'Women''s Wellness'), TRUE, 'Women''s wellness', '/images/medicines/lunabalance-comfort.svg', NOW(), NOW()),
+      ('ForgeWell Active', 'ForgeWell', 'Demo nutrient blend', '30 sachets', 'Fictional demonstration nutrition product. Not intended for diagnosis or treatment.', 269.00, 35, (SELECT id FROM categories WHERE name = 'Men''s Wellness'), FALSE, 'Men''s wellness', '/images/medicines/forgewell-active.svg', NOW(), NOW()),
+      ('ForgeWell Hydration', 'ForgeWell', 'Demo electrolyte blend', '12 sachets', 'Fictional demonstration hydration product. Follow the product label.', 179.00, 76, (SELECT id FROM categories WHERE name = 'Men''s Wellness'), FALSE, 'Men''s wellness', '/images/medicines/forgewell-hydration.svg', NOW(), NOW()),
+      ('NutriBalance Daily', 'NutriBalance', 'Demo nutrient blend', '60 capsules', 'Fictional demonstration nutrition product. Not intended for diagnosis or treatment.', 329.00, 91, (SELECT id FROM categories WHERE name = 'Immunity & Nutrition'), FALSE, 'Immunity and nutrition', '/images/medicines/nutribalance-daily.svg', NOW(), NOW()),
+      ('HydraCare Mineral', 'HydraCare', 'Demo mineral blend', '20 sachets', 'Fictional demonstration hydration product. Follow the product label.', 189.00, 3, (SELECT id FROM categories WHERE name = 'Immunity & Nutrition'), FALSE, 'Immunity and nutrition', '/images/medicines/hydracare-mineral.svg', NOW(), NOW());
 
     COMMIT;
 END$$

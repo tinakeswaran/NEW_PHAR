@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { CartItem } from '../components/CartItem';
+import { PromotionalCoupons } from '../components/PromotionalCoupons';
 import { couponService } from '../services/couponService';
 import { formatINR } from '../utils/formatters';
 import { 
@@ -17,12 +18,6 @@ import {
   CheckCircle2,
   X
 } from 'lucide-react';
-
-const QUICK_COUPONS = [
-  { code: 'WELCOME10', desc: '10% OFF' },
-  { code: 'FIRST50', desc: '₹50 OFF (Min ₹299)' },
-  { code: 'HEALTH20', desc: '20% OFF (Min ₹499)' },
-];
 
 export const Cart = () => {
   const { cart, totalPrice, itemCount, clearCart, loading, cartError } = useCart();
@@ -40,7 +35,7 @@ export const Cart = () => {
   const [couponLoading, setCouponLoading] = useState(false);
   const [couponMessage, setCouponMessage] = useState(null);
 
-  const hasRxItem = cart?.items?.some((item) => item.medicine.requiresPrescription);
+  const hasRxItem = cart?.items?.some((item) => item.medicine.requiresPrescription || item.quantity > 100);
 
   const applyCouponCode = async (codeToApply) => {
     const code = (codeToApply || couponInput).trim().toUpperCase();
@@ -238,18 +233,16 @@ export const Cart = () => {
                   </p>
                 )}
 
-                {/* Quick Chips */}
-                <div className="pt-1 flex flex-wrap gap-1.5">
-                  {QUICK_COUPONS.map((c) => (
-                    <button
-                      key={c.code}
-                      type="button"
-                      onClick={() => applyCouponCode(c.code)}
-                      className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-sand-100 hover:bg-sand-200 dark:bg-forest-800 dark:hover:bg-forest-700 text-forest-800 dark:text-sand-200 border border-sand-200 dark:border-forest-700 transition"
-                    >
-                      {c.code}
-                    </button>
-                  ))}
+                {/* Promotional Coupons List */}
+                <div className="pt-2 border-t border-sand-200 dark:border-forest-800">
+                  <PromotionalCoupons
+                    onSelectCoupon={(code) => {
+                      setCouponInput(code);
+                      applyCouponCode(code);
+                    }}
+                    appliedCouponCode={appliedCoupon?.code}
+                    cartTotal={totalPrice}
+                  />
                 </div>
               </div>
             )}

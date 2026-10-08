@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f291e" />
+      <stop offset="100%" stop-color="#05140e" />
+    </linearGradient>
+    <linearGradient id="bottleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1b4d3e" />
+      <stop offset="30%" stop-color="#2d7a63" />
+      <stop offset="70%" stop-color="#1b4d3e" />
+      <stop offset="100%" stop-color="#0e2f25" />
+    </linearGradient>
+    <linearGradient id="capGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d4af37" />
+      <stop offset="100%" stop-color="#aa820a" />
+    </linearGradient>
+    <linearGradient id="labelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fdfbf7" />
+      <stop offset="100%" stop-color="#f4eee0" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" rx="32" fill="url(#bgGrad)" />
+  
+  <!-- Subtle background glow -->
+  <circle cx="200" cy="220" r="140" fill="#2d7a63" opacity="0.15" />
+  
+  <!-- Bottle Container -->
+  <g filter="url(#shadow)">
+    <!-- Cap -->
+    <rect x="150" y="70" width="100" height="36" rx="6" fill="url(#capGrad)" />
+    <!-- Cap ridges -->
+    <path d="M160 70v36M175 70v36M190 70v36M205 70v36M220 70v36M235 70v36" stroke="#846505" stroke-width="2" opacity="0.4" />
+    <rect x="144" y="102" width="112" height="14" rx="3" fill="#846505" opacity="0.8" />
+    
+    <!-- Bottle Neck -->
+    <rect x="156" y="112" width="88" height="20" fill="#1b4d3e" />
+    
+    <!-- Bottle Body -->
+    <rect x="120" y="130" width="160" height="200" rx="24" fill="url(#bottleGrad)" />
+    
+    <!-- Bottle Label -->
+    <rect x="126" y="160" width="148" height="145" rx="12" fill="url(#labelGrad)" />
+    
+    <!-- Label Header Brand -->
+    <rect x="126" y="160" width="148" height="36" rx="12" fill="#0f291e" />
+    <text x="200" y="183" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="14" font-weight="900" fill="#d4af37" text-anchor="middle" letter-spacing="1">VITACORE</text>
+    
+    <!-- Product Title -->
+    <text x="200" y="218" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="18" font-weight="800" fill="#0f291e" text-anchor="middle">Daily Multivitamin</text>
+    <text x="200" y="236" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="11" font-weight="600" fill="#526b5e" text-anchor="middle">COMPLETE BOTANICAL BLEND</text>
+    
+    <!-- Icon / Badge -->
+    <circle cx="200" cy="265" r="16" fill="#1b4d3e" />
+    <path d="M194 265l4 4 8-8" stroke="#d4af37" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    
+    <!-- Label Footer -->
+    <text x="200" y="296" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="700" fill="#0f291e" text-anchor="middle">30 CLINICAL TABLETS</text>
+  </g>
+
+  <!-- Floating Pills -->
+  <g opacity="0.9">
+    <ellipse cx="80" cy="280" rx="20" ry="10" fill="#d4af37" transform="rotate(-25 80 280)" />
+    <line x1="68" y1="285" x2="92" y2="275" stroke="#ffffff" stroke-width="1.5" opacity="0.6" />
+    
+    <ellipse cx="320" cy="290" rx="18" ry="9" fill="#2d7a63" transform="rotate(30 320 290)" />
+  </g>
+</svg>

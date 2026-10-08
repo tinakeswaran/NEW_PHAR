@@ -142,7 +142,7 @@ export const Orders = () => {
         <div className="bg-white dark:bg-forest-900/40 p-12 rounded-4xl border border-sand-200 dark:border-forest-800 shadow-elevated text-center space-y-4 max-w-lg mx-auto">
           <Package className="w-12 h-12 text-sand-400 mx-auto" />
           <h3 className="text-lg font-black text-forest-950 dark:text-sand-100">No Order History Found</h3>
-          <p className="text-xs text-sand-500 dark:text-sand-400">You haven't placed any medication orders with VALENCE yet.</p>
+          <p className="text-xs text-sand-500 dark:text-sand-400">You haven't placed any medication orders with PHARMED yet.</p>
           <Link
             to="/medicines"
             className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-forest-900 text-sand-50 dark:bg-emerald-600 dark:text-forest-950 text-xs font-bold hover:bg-forest-800 transition"
@@ -263,8 +263,12 @@ export const Orders = () => {
                         <div className="flex items-center gap-3">
                           <div className="w-9 h-9 rounded-lg bg-sand-100 dark:bg-forest-950 p-1 border border-sand-200 dark:border-forest-800 flex-shrink-0 flex items-center justify-center">
                             <img
-                              src={item.medicine?.imageUrl || '/products/daily-wellness.svg'}
+                              src={item.medicine?.imageUrl || '/images/medicines/placeholder.svg'}
                               alt={item.medicine?.name}
+                              onError={(e) => {
+                                e.target.onerror = null;
+                                e.target.src = '/images/medicines/placeholder.svg';
+                              }}
                               className="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal"
                             />
                           </div>

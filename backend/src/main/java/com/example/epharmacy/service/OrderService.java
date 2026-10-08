@@ -94,7 +94,7 @@ public class OrderService {
             if (med.getStockQuantity() < item.getQuantity()) {
                 throw new BadRequestException("Insufficient stock for medicine: " + med.getName());
             }
-            if (Boolean.TRUE.equals(med.getRequiresPrescription())) {
+            if (quantityPolicy.isPrescriptionRequired(med, item.getQuantity())) {
                 rxMedicinesInCart.add(med);
             }
             BigDecimal itemSubtotal = item.getPrice().multiply(BigDecimal.valueOf(item.getQuantity()));
@@ -119,7 +119,7 @@ public class OrderService {
         }
 
         if (!rxMedicinesInCart.isEmpty() && prescription == null) {
-            throw new BadRequestException("One or more items require an approved prescription. Please select an approved prescription.");
+            throw new BadRequestException("One or more items in your cart require an approved prescription (Rx or quantity > 100). Please select an approved prescription.");
         }
 
         if (prescription != null) {
@@ -145,7 +145,7 @@ public class OrderService {
         String couponCode = null;
 
         if (couponService != null && request.getCouponCode() != null && !request.getCouponCode().trim().isEmpty()) {
-            var couponResult = couponService.validateAndCalculateDiscount(request.getCouponCode().trim(), subtotalAmount);
+            var couponResult = couponService.validateAndCalculateDiscount(request.getCouponCode().trim(), subtotalAmount, userId);
             discountAmount = (BigDecimal) couponResult.get("discountAmount");
             couponCode = (String) couponResult.get("couponCode");
         }
@@ -154,6 +154,9 @@ public class OrderService {
         if (finalTotal.compareTo(BigDecimal.ZERO) < 0) {
             finalTotal = BigDecimal.ZERO;
         }
+
+        String payMethodStr = request.getPaymentMethod() != null ? request.getPaymentMethod().toUpperCase() : "COD";
+        PaymentStatus initialPaymentStatus = "COD".equals(payMethodStr) ? PaymentStatus.PENDING : PaymentStatus.PAID;
 
         Order order = new Order();
         order.setUser(user);
@@ -164,7 +167,8 @@ public class OrderService {
         order.setCouponCode(couponCode);
         order.setTotalAmount(finalTotal);
         order.setOrderStatus(OrderStatus.CONFIRMED);
-        order.setPaymentStatus(PaymentStatus.PAID);
+        order.setPaymentStatus(initialPaymentStatus);
+        order.setPaymentMethod(payMethodStr);
         order.setPrescriptionId(request.getPrescriptionId());
 
         Order savedOrder = orderRepository.save(order);
@@ -184,13 +188,13 @@ public class OrderService {
         orderRepository.save(savedOrder);
 
         // 5. Create Mock Payment Record
-        PaymentMethod method = PaymentMethod.CARD;
+        PaymentMethod method = PaymentMethod.COD;
         try {
             if (request.getPaymentMethod() != null) {
                 method = PaymentMethod.valueOf(request.getPaymentMethod().toUpperCase());
             }
         } catch (IllegalArgumentException e) {
-            method = PaymentMethod.CARD;
+            method = PaymentMethod.COD;
         }
 
         Payment payment = new Payment();
@@ -198,7 +202,7 @@ public class OrderService {
         payment.setAmount(finalTotal);
         payment.setPaymentMethod(method);
         payment.setTransactionId("TXN-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase());
-        payment.setPaymentStatus(PaymentStatus.PAID);
+        payment.setPaymentStatus(initialPaymentStatus);
         paymentRepository.save(payment);
 
         // 6. Create Delivery Record

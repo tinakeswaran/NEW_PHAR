@@ -30,6 +30,9 @@ public class Coupon {
     @Column(name = "max_discount_amount")
     private BigDecimal maxDiscountAmount;
 
+    @Column(name = "first_order_only")
+    private Boolean firstOrderOnly = false;
+
     @Column(name = "is_active", nullable = false)
     private Boolean isActive = true;
 
@@ -66,6 +69,9 @@ public class Coupon {
 
     public BigDecimal getMaxDiscountAmount() { return maxDiscountAmount; }
     public void setMaxDiscountAmount(BigDecimal maxDiscountAmount) { this.maxDiscountAmount = maxDiscountAmount; }
+
+    public Boolean getFirstOrderOnly() { return firstOrderOnly; }
+    public void setFirstOrderOnly(Boolean firstOrderOnly) { this.firstOrderOnly = firstOrderOnly; }
 
     public Boolean getIsActive() { return isActive; }
     public void setIsActive(Boolean isActive) { this.isActive = isActive; }

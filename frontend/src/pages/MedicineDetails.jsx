@@ -138,8 +138,12 @@ export const MedicineDetails = () => {
         <div className="lg:col-span-6 flex flex-col gap-4">
           <div className="relative w-full h-80 sm:h-96 rounded-3xl bg-sand-100/70 dark:bg-forest-950/60 border border-sand-200 dark:border-forest-800 p-8 flex items-center justify-center overflow-hidden">
             <img
-              src={medicine.imageUrl || '/products/daily-wellness.svg'}
+              src={medicine.imageUrl || '/images/medicines/placeholder.svg'}
               alt={medicine.name}
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = '/images/medicines/placeholder.svg';
+              }}
               className="max-h-full max-w-full object-contain mix-blend-multiply dark:mix-blend-normal hover:scale-105 transition-transform duration-500"
             />
 
@@ -216,7 +220,7 @@ export const MedicineDetails = () => {
             </h1>
 
             <p className="text-xs sm:text-sm font-medium text-sand-600 dark:text-sand-400">
-              Manufacturer: <span className="font-bold text-forest-900 dark:text-sand-200">{medicine.brand || 'VALENCE Clinical'}</span> • Active Composition: <span className="font-bold text-forest-900 dark:text-sand-200">{medicine.composition || 'Active Therapeutic'}</span>
+              Manufacturer: <span className="font-bold text-forest-900 dark:text-sand-200">{medicine.brand || 'PHARMED Healthcare'}</span> • Active Composition: <span className="font-bold text-forest-900 dark:text-sand-200">{medicine.composition || 'Active Therapeutic'}</span>
             </p>
 
             <div className="pt-2 pb-4 border-b border-sand-200 dark:border-forest-800">
@@ -262,8 +266,14 @@ export const MedicineDetails = () => {
                   </button>
                   <span className="font-black text-sm text-forest-950 dark:text-sand-100 px-2">{quantity}</span>
                   <button
-                    onClick={() => setQuantity(quantity + 1)}
-                    disabled={isOutOfStock}
+                    onClick={() => {
+                      if (quantity >= 200) {
+                        alert('Maximum allowable quantity limit is 200 units.');
+                        return;
+                      }
+                      setQuantity(quantity + 1);
+                    }}
+                    disabled={quantity >= 200 || isOutOfStock}
                     className="w-9 h-9 rounded-xl flex items-center justify-center text-forest-800 dark:text-sand-300 hover:bg-white dark:hover:bg-forest-800 transition disabled:opacity-40"
                   >
                     <Plus className="w-4 h-4" />
@@ -291,6 +301,13 @@ export const MedicineDetails = () => {
               <div className="p-3 rounded-2xl bg-rose-50 dark:bg-rose-950/50 border border-rose-200 dark:border-rose-800 text-xs font-medium text-rose-800 dark:text-rose-300 flex items-start gap-2" role="alert">
                 <AlertCircle className="w-4 h-4 text-rose-600 flex-shrink-0 mt-0.5" />
                 <span>{cartError}</span>
+              </div>
+            )}
+
+            {!medicine.requiresPrescription && quantity > 100 && (
+              <div className="p-3 rounded-2xl bg-amber-50/80 dark:bg-amber-950/50 border border-amber-300 dark:border-amber-800 text-xs font-medium text-amber-900 dark:text-amber-200 flex items-center gap-2" role="alert">
+                <FileText className="w-4 h-4 text-amber-600 dark:text-amber-400 flex-shrink-0" />
+                <span>A prescription is required for quantities above 100.</span>
               </div>
             )}
 

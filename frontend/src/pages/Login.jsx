@@ -36,12 +36,6 @@ export const Login = () => {
     }
   };
 
-  const fillCredentials = (demoEmail, demoPassword) => {
-    setEmail(demoEmail);
-    setPassword(demoPassword);
-    setError('');
-  };
-
   return (
     <div className="min-h-[80vh] flex items-center justify-center py-10 px-4 animate-fade-in">
       <div className="w-full max-w-4xl bg-white dark:bg-forest-900/80 rounded-4xl border border-sand-200 dark:border-forest-800 shadow-premium overflow-hidden grid grid-cols-1 md:grid-cols-12 transition-colors">
@@ -84,29 +78,6 @@ export const Login = () => {
             </p>
           </div>
 
-          {/* Quick-Fill Demo Helpers */}
-          <div className="p-3 bg-sand-50 dark:bg-forest-950/60 rounded-2xl border border-sand-200 dark:border-forest-800 text-xs space-y-2">
-            <span className="text-[10px] uppercase font-bold text-sand-500 dark:text-sand-400 block">
-              Quick-Fill Test Credentials:
-            </span>
-            <div className="flex flex-wrap gap-2">
-              <button
-                type="button"
-                onClick={() => fillCredentials('replica_tester@example.com', 'Tester@123')}
-                className="px-3 py-1.5 rounded-xl bg-white dark:bg-forest-800 border border-sand-300 dark:border-forest-700 text-forest-900 dark:text-sand-100 font-bold hover:bg-forest-900 hover:text-white dark:hover:bg-forest-700 transition text-xs shadow-xs"
-              >
-                Patient Account
-              </button>
-              <button
-                type="button"
-                onClick={() => fillCredentials('admin@epharmacy.com', 'Admin@123')}
-                className="px-3 py-1.5 rounded-xl bg-white dark:bg-forest-800 border border-sand-300 dark:border-forest-700 text-forest-900 dark:text-sand-100 font-bold hover:bg-forest-900 hover:text-white dark:hover:bg-forest-700 transition text-xs shadow-xs"
-              >
-                Admin Cockpit
-              </button>
-            </div>
-          </div>
-
           {error && (
             <div className="p-3.5 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800/60 text-xs font-medium text-rose-800 dark:text-rose-200 leading-relaxed" role="alert">
               {error}
@@ -123,7 +94,7 @@ export const Login = () => {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="patient@valencehealth.com"
+                  placeholder="patient@pharmed.in"
                   className="w-full bg-transparent py-3 text-xs text-forest-950 dark:text-sand-100 placeholder-sand-400 dark:placeholder-forest-500 outline-none"
                 />
               </div>
@@ -162,7 +133,7 @@ export const Login = () => {
           </form>
 
           <p className="text-xs text-center text-sand-500 dark:text-sand-400 font-medium">
-            New to VALENCE Clinical?{' '}
+            New to PHARMED?{' '}
             <Link to="/register" className="font-extrabold text-forest-900 dark:text-mint-400 hover:underline">
               Create an Account
             </Link>

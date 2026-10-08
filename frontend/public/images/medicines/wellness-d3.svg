@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1c1608" />
+      <stop offset="100%" stop-color="#0b0802" />
+    </linearGradient>
+    <linearGradient id="bottleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#b8860b" />
+      <stop offset="30%" stop-color="#e6b800" />
+      <stop offset="70%" stop-color="#b8860b" />
+      <stop offset="100%" stop-color="#7a5907" />
+    </linearGradient>
+    <linearGradient id="capGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#d0d0d0" />
+    </linearGradient>
+    <linearGradient id="softgelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffea79" />
+      <stop offset="100%" stop-color="#ffaa00" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" rx="32" fill="url(#bgGrad)" />
+  <circle cx="200" cy="220" r="130" fill="#e6b800" opacity="0.12" />
+
+  <g filter="url(#shadow)">
+    <!-- Cap -->
+    <rect x="150" y="70" width="100" height="36" rx="6" fill="url(#capGrad)" />
+    <rect x="144" y="102" width="112" height="14" rx="3" fill="#b0b0b0" />
+    
+    <!-- Bottle Neck -->
+    <rect x="156" y="112" width="88" height="20" fill="#8c6608" />
+    
+    <!-- Bottle Body -->
+    <rect x="120" y="130" width="160" height="200" rx="24" fill="url(#bottleGrad)" opacity="0.9" />
+    
+    <!-- Label -->
+    <rect x="126" y="160" width="148" height="145" rx="12" fill="#ffffff" />
+    
+    <!-- Label Top Banner -->
+    <rect x="126" y="160" width="148" height="36" rx="12" fill="#d99b00" />
+    <text x="200" y="183" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="14" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="1">VITACORE</text>
+    
+    <!-- Title -->
+    <text x="200" y="218" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="20" font-weight="900" fill="#1c1608" text-anchor="middle">Wellness D3</text>
+    <text x="200" y="236" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="11" font-weight="700" fill="#d99b00" text-anchor="middle">SUNSHINE VITAMIN 2000 IU</text>
+    
+    <!-- Sun icon -->
+    <circle cx="200" cy="264" r="12" fill="#ffaa00" />
+    <path d="M200 246v4M200 278v4M182 264h-4M222 264h-4M187 251l-3-3M216 277l-3-3M187 277l-3 3M216 251l-3 3" stroke="#ffaa00" stroke-width="2" stroke-linecap="round" />
+    
+    <!-- Footer text -->
+    <text x="200" y="296" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="800" fill="#1c1608" text-anchor="middle">60 HIGH-ABSORPTION SOFTGELS</text>
+  </g>
+
+  <!-- Softgels -->
+  <g opacity="0.95">
+    <ellipse cx="85" cy="285" rx="16" ry="10" fill="url(#softgelGrad)" transform="rotate(-15 85 285)" stroke="#ffffff" stroke-width="1" />
+    <ellipse cx="315" cy="275" rx="16" ry="10" fill="url(#softgelGrad)" transform="rotate(20 315 275)" stroke="#ffffff" stroke-width="1" />
+  </g>
+</svg>

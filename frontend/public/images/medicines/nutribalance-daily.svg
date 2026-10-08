@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f2b1d" />
+      <stop offset="100%" stop-color="#040f09" />
+    </linearGradient>
+    <linearGradient id="bottleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2d6a4f" />
+      <stop offset="30%" stop-color="#40916c" />
+      <stop offset="70%" stop-color="#2d6a4f" />
+      <stop offset="100%" stop-color="#1b4332" />
+    </linearGradient>
+    <linearGradient id="capGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#d8f3dc" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" rx="32" fill="url(#bgGrad)" />
+  <circle cx="200" cy="220" r="130" fill="#40916c" opacity="0.12" />
+
+  <g filter="url(#shadow)">
+    <!-- Cap -->
+    <rect x="150" y="70" width="100" height="36" rx="6" fill="url(#capGrad)" />
+    <rect x="144" y="102" width="112" height="14" rx="3" fill="#b7e4c7" />
+    
+    <!-- Bottle Neck -->
+    <rect x="156" y="112" width="88" height="20" fill="#1b4332" />
+    
+    <!-- Bottle Body -->
+    <rect x="120" y="130" width="160" height="200" rx="24" fill="url(#bottleGrad)" />
+    
+    <!-- Label -->
+    <rect x="126" y="160" width="148" height="145" rx="12" fill="#ffffff" />
+    
+    <!-- Label Top Banner -->
+    <rect x="126" y="160" width="148" height="36" rx="12" fill="#0f2b1d" />
+    <text x="200" y="183" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="13" font-weight="900" fill="#b7e4c7" text-anchor="middle" letter-spacing="1">NUTRIBALANCE</text>
+    
+    <!-- Title -->
+    <text x="200" y="216" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="19" font-weight="900" fill="#1b4332" text-anchor="middle">NutriBalance</text>
+    <text x="200" y="234" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="12" font-weight="700" fill="#2d6a4f" text-anchor="middle">COMPLETE NUTRITION</text>
+    
+    <!-- Leaf Icon -->
+    <path d="M200 248 C185 248 185 270 200 270 C215 270 215 248 200 248 Z" fill="#40916c" />
+    <line x1="200" y1="250" x2="200" y2="268" stroke="#ffffff" stroke-width="1.5" />
+    
+    <!-- Footer text -->
+    <text x="200" y="294" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="800" fill="#0f2b1d" text-anchor="middle">60 VITAL CAPSULES</text>
+  </g>
+</svg>

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c231e" />
+      <stop offset="100%" stop-color="#040f0c" />
+    </linearGradient>
+    <linearGradient id="tubeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2a9d8f" />
+      <stop offset="40%" stop-color="#56ab91" />
+      <stop offset="80%" stop-color="#2a9d8f" />
+      <stop offset="100%" stop-color="#19635b" />
+    </linearGradient>
+    <linearGradient id="capGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#d8f3dc" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" rx="32" fill="url(#bgGrad)" />
+  <circle cx="200" cy="210" r="140" fill="#2a9d8f" opacity="0.15" />
+
+  <g filter="url(#shadow)">
+    <!-- Tube Top Crimp -->
+    <rect x="135" y="70" width="130" height="12" rx="2" fill="#19635b" />
+    <line x1="135" y1="76" x2="265" y2="76" stroke="#56ab91" stroke-width="1.5" />
+
+    <!-- Tube Body ( tapered downwards ) -->
+    <path d="M135 82 L265 82 L245 285 L155 285 Z" fill="url(#tubeGrad)" />
+    
+    <!-- Cap at Bottom -->
+    <rect x="150" y="285" width="100" height="40" rx="8" fill="url(#capGrad)" />
+    <rect x="144" y="285" width="112" height="10" rx="2" fill="#b7e4c7" />
+
+    <!-- Printed Label on Tube -->
+    <rect x="145" y="115" width="110" height="140" rx="8" fill="#ffffff" opacity="0.95" />
+    
+    <!-- Shield Symbol -->
+    <path d="M200 130 L210 135 V145 C210 152 200 156 200 156 C200 156 190 152 190 145 V135 Z" fill="#2a9d8f" />
+    
+    <!-- Brand -->
+    <text x="200" y="172" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="900" fill="#0c231e" text-anchor="middle" letter-spacing="1">DERMASHIELD</text>
+    
+    <!-- Title -->
+    <text x="200" y="195" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="16" font-weight="900" fill="#19635b" text-anchor="middle">Gentle Cleanser</text>
+    <text x="200" y="212" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="9" font-weight="700" fill="#56ab91" text-anchor="middle">SOOTHING FACIAL FORMULA</text>
+    
+    <!-- Water Drop Emblem -->
+    <path d="M200 222 C200 222 194 230 194 234 C194 237.3 196.7 240 200 240 C203.3 240 206 237.3 206 234 C206 230 200 222 200 222 Z" fill="#2a9d8f" />
+  </g>
+</svg>

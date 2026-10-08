@@ -341,34 +341,41 @@ export const AdminPrescriptions = () => {
                 {/* Covered Formulations Selector */}
                 <div className="space-y-2">
                   <label className="text-xs font-black uppercase tracking-wider text-forest-900 dark:text-sand-200 block">
-                    Assign Cleared Rx Formulations
+                    Assign Cleared Formulations
                   </label>
                   <p className="text-[11px] text-sand-500 dark:text-sand-400">
-                    Select every medication authorized by this script to permit patient purchase:
+                    Select every medication authorized by this script to permit patient purchase (Rx or quantities &gt; 100):
                   </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-48 overflow-y-auto p-2 bg-sand-50 dark:bg-forest-950/60 rounded-2xl border border-sand-200 dark:border-forest-800">
-                    {medicines.filter((m) => m.requiresPrescription).map((med) => {
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-56 overflow-y-auto p-2 bg-sand-50 dark:bg-forest-950/60 rounded-2xl border border-sand-200 dark:border-forest-800">
+                    {medicines.map((med) => {
                       const isChecked = medicineIds.includes(med.id);
 
                       return (
                         <label
                           key={med.id}
-                          className={`flex items-center gap-2.5 p-2 rounded-xl border text-xs cursor-pointer transition ${
+                          className={`flex items-center justify-between gap-2 p-2 rounded-xl border text-xs cursor-pointer transition ${
                             isChecked
                               ? 'bg-white dark:bg-forest-900 border-forest-600 dark:border-mint-500/60 font-bold text-forest-950 dark:text-white'
                               : 'bg-transparent border-transparent text-sand-600 dark:text-sand-400 hover:text-forest-950 dark:hover:text-sand-200'
                           }`}
                         >
-                          <input
-                            type="checkbox"
-                            checked={isChecked}
-                            onChange={(e) => {
-                              if (e.target.checked) setMedicineIds([...medicineIds, med.id]);
-                              else setMedicineIds(medicineIds.filter((id) => id !== med.id));
-                            }}
-                            className="w-4 h-4 accent-forest-900 rounded text-forest-900"
-                          />
-                          <span className="truncate">{med.name}</span>
+                          <div className="flex items-center gap-2.5 truncate min-w-0">
+                            <input
+                              type="checkbox"
+                              checked={isChecked}
+                              onChange={(e) => {
+                                if (e.target.checked) setMedicineIds([...medicineIds, med.id]);
+                                else setMedicineIds(medicineIds.filter((id) => id !== med.id));
+                              }}
+                              className="w-4 h-4 accent-forest-900 rounded text-forest-900 flex-shrink-0"
+                            />
+                            <span className="truncate">{med.name}</span>
+                          </div>
+                          {med.requiresPrescription ? (
+                            <span className="text-[9px] font-black px-1.5 py-0.5 rounded bg-purple-100 text-purple-900 dark:bg-purple-950/80 dark:text-purple-300 flex-shrink-0">Rx</span>
+                          ) : (
+                            <span className="text-[9px] font-black px-1.5 py-0.5 rounded bg-sand-200 text-sand-700 dark:bg-forest-800 dark:text-sand-300 flex-shrink-0">OTC</span>
+                          )}
                         </label>
                       );
                     })}

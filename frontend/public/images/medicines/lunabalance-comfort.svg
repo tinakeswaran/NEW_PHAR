@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f0a24" />
+      <stop offset="100%" stop-color="#0b020d" />
+    </linearGradient>
+    <linearGradient id="boxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#f5eef7" />
+    </linearGradient>
+    <linearGradient id="rxBand" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6a1b9a" />
+      <stop offset="100%" stop-color="#8e24aa" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" rx="32" fill="url(#bgGrad)" />
+  <circle cx="200" cy="210" r="140" fill="#8e24aa" opacity="0.12" />
+
+  <g filter="url(#shadow)">
+    <!-- Box -->
+    <rect x="90" y="110" width="220" height="190" rx="16" fill="url(#boxGrad)" stroke="#d1c4e9" stroke-width="1" />
+    
+    <!-- Rx Purple Stripe -->
+    <rect x="90" y="110" width="220" height="38" rx="16" fill="url(#rxBand)" />
+    <rect x="90" y="132" width="220" height="16" fill="url(#rxBand)" />
+    
+    <!-- Rx Badge & Text -->
+    <text x="115" y="136" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="20" font-weight="900" fill="#ffffff">Rx</text>
+    <text x="145" y="134" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="11" font-weight="800" fill="#f3e5f5" letter-spacing="1">PRESCRIPTION ONLY</text>
+    
+    <!-- Brand -->
+    <text x="115" y="172" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="12" font-weight="800" fill="#6a1b9a" letter-spacing="0.5">LUNABALANCE RX</text>
+    
+    <!-- Title -->
+    <text x="115" y="202" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="21" font-weight="900" fill="#4a148c">Comfort Rx</text>
+    <text x="115" y="222" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="12" font-weight="700" fill="#7b1fa2">Hormonal Support Formulation</text>
+    <text x="115" y="240" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="500" fill="#9c27b0">Targeted Relief Capsules</text>
+    
+    <line x1="115" y1="262" x2="285" y2="262" stroke="#e1bee7" stroke-width="1" />
+    <text x="115" y="282" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="11" font-weight="800" fill="#1f0a24">20 CLINICAL CAPSULES</text>
+  </g>
+</svg>

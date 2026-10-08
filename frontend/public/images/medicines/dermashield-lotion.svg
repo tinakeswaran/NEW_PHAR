@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2a1d13" />
+      <stop offset="100%" stop-color="#120c08" />
+    </linearGradient>
+    <linearGradient id="bottleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fdfbf7" />
+      <stop offset="50%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#ebdccb" />
+    </linearGradient>
+    <linearGradient id="pumpGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d4a373" />
+      <stop offset="100%" stop-color="#bc8a5f" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" rx="32" fill="url(#bgGrad)" />
+  <circle cx="200" cy="220" r="140" fill="#d4a373" opacity="0.12" />
+
+  <g filter="url(#shadow)">
+    <!-- Pump Nozzle Head -->
+    <path d="M170 65 L215 65 L225 78 L170 78 Z" fill="url(#pumpGrad)" />
+    <rect x="185" y="78" width="30" height="20" fill="#bc8a5f" />
+    <rect x="180" y="98" width="40" height="14" rx="3" fill="#a47148" />
+    <!-- Neck Collar -->
+    <rect x="175" y="112" width="50" height="22" fill="#d4a373" />
+
+    <!-- Bottle Body -->
+    <rect x="130" y="134" width="140" height="196" rx="28" fill="url(#bottleGrad)" />
+    
+    <!-- Label -->
+    <rect x="138" y="165" width="124" height="145" rx="12" fill="#2a1d13" />
+    
+    <!-- Shield Logo Header -->
+    <path d="M200 178 L212 184 V196 C212 204 200 210 200 210 C200 210 188 204 188 196 V184 Z" fill="#d4a373" />
+    
+    <!-- Brand -->
+    <text x="200" y="226" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="11" font-weight="900" fill="#ccd5ae" text-anchor="middle" letter-spacing="1">DERMASHIELD</text>
+    
+    <!-- Title -->
+    <text x="200" y="248" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="16" font-weight="900" fill="#ffffff" text-anchor="middle">HydraLotion</text>
+    <text x="200" y="264" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="600" fill="#faedcd" text-anchor="middle">DERMATOLOGICAL BARRIER</text>
+    
+    <!-- Footer -->
+    <line x1="155" y1="278" x2="245" y2="278" stroke="#d4a373" stroke-width="1" opacity="0.5" />
+    <text x="200" y="296" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="800" fill="#d4a373" text-anchor="middle">200 ML DISPENSER</text>
+  </g>
+</svg>

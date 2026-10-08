@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#142c1f" />
+      <stop offset="100%" stop-color="#06120b" />
+    </linearGradient>
+    <linearGradient id="boxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2e7d32" />
+      <stop offset="100%" stop-color="#1b5e20" />
+    </linearGradient>
+    <linearGradient id="sachetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#e8f5e9" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" rx="32" fill="url(#bgGrad)" />
+  <circle cx="200" cy="210" r="140" fill="#4caf50" opacity="0.12" />
+
+  <g filter="url(#shadow)">
+    <!-- Box -->
+    <rect x="110" y="90" width="180" height="210" rx="18" fill="url(#boxGrad)" />
+    
+    <!-- White Box Face -->
+    <rect x="120" y="120" width="160" height="165" rx="12" fill="#ffffff" />
+    
+    <!-- Brand Banner -->
+    <rect x="120" y="120" width="160" height="38" rx="12" fill="#142c1f" />
+    <text x="200" y="144" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="13" font-weight="900" fill="#81c784" text-anchor="middle" letter-spacing="1">COREKIND</text>
+    
+    <!-- Product Name -->
+    <text x="200" y="180" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="18" font-weight="900" fill="#1b5e20" text-anchor="middle">GastroCalm</text>
+    <text x="200" y="198" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="14" font-weight="800" fill="#2e7d32" text-anchor="middle">BALANCE</text>
+    <text x="200" y="216" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="600" fill="#66bb6a" text-anchor="middle">PREBIOTIC FIBER BLEND</text>
+    
+    <!-- Leaf / Gut Emblem -->
+    <path d="M190 248 C190 232, 210 232, 210 248 C210 262, 190 262, 190 248 Z" fill="#2e7d32" />
+    <path d="M195 248 L205 248" stroke="#ffffff" stroke-width="2" />
+    
+    <!-- Footer -->
+    <text x="200" y="272" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="800" fill="#142c1f" text-anchor="middle">30 INDIVIDUAL SACHETS</text>
+  </g>
+
+  <!-- Individual Sachet Leaning Out -->
+  <g opacity="0.95" transform="translate(65, 190) rotate(-18)" filter="url(#shadow)">
+    <rect x="0" y="0" width="60" height="110" rx="8" fill="url(#sachetGrad)" stroke="#a5d6a7" stroke-width="1.5" />
+    <rect x="0" y="0" width="60" height="16" fill="#2e7d32" rx="4" />
+    <text x="30" y="12" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="7" font-weight="900" fill="#ffffff" text-anchor="middle">SACHET</text>
+    <text x="30" y="55" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="8" font-weight="800" fill="#1b5e20" text-anchor="middle">GastroCalm</text>
+  </g>
+</svg>

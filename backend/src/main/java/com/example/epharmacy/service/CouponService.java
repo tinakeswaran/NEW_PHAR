@@ -1,9 +1,11 @@
 package com.example.epharmacy.service;
 
 import com.example.epharmacy.entity.Coupon;
+import com.example.epharmacy.entity.OrderStatus;
 import com.example.epharmacy.exception.BadRequestException;
 import com.example.epharmacy.exception.ResourceNotFoundException;
 import com.example.epharmacy.repository.CouponRepository;
+import com.example.epharmacy.repository.OrderRepository;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -17,9 +19,11 @@ import java.util.Map;
 public class CouponService {
 
     private final CouponRepository couponRepository;
+    private final OrderRepository orderRepository;
 
-    public CouponService(CouponRepository couponRepository) {
+    public CouponService(CouponRepository couponRepository, OrderRepository orderRepository) {
         this.couponRepository = couponRepository;
+        this.orderRepository = orderRepository;
     }
 
     public List<Coupon> getActiveCoupons() {
@@ -27,6 +31,10 @@ public class CouponService {
     }
 
     public Map<String, Object> validateAndCalculateDiscount(String code, BigDecimal orderAmount) {
+        return validateAndCalculateDiscount(code, orderAmount, null);
+    }
+
+    public Map<String, Object> validateAndCalculateDiscount(String code, BigDecimal orderAmount, Long userId) {
         if (code == null || code.trim().isEmpty()) {
             throw new BadRequestException("Coupon code is required");
         }
@@ -40,6 +48,13 @@ public class CouponService {
 
         if (coupon.getExpiresAt() != null && coupon.getExpiresAt().isBefore(LocalDateTime.now())) {
             throw new BadRequestException("This coupon has expired");
+        }
+
+        if (Boolean.TRUE.equals(coupon.getFirstOrderOnly()) && userId != null) {
+            boolean hasPreviousOrders = orderRepository.existsByUserIdAndOrderStatusNot(userId, OrderStatus.CANCELLED);
+            if (hasPreviousOrders) {
+                throw new BadRequestException("Coupon " + coupon.getCode() + " is valid for first-time orders only");
+            }
         }
 
         if (coupon.getMinOrderAmount() != null && orderAmount.compareTo(coupon.getMinOrderAmount()) < 0) {
@@ -67,6 +82,10 @@ public class CouponService {
         result.put("valid", true);
         result.put("couponCode", coupon.getCode());
         result.put("description", coupon.getDescription());
+        result.put("discountType", coupon.getDiscountType());
+        result.put("discountValue", coupon.getDiscountValue());
+        result.put("minOrderAmount", coupon.getMinOrderAmount());
+        result.put("firstOrderOnly", Boolean.TRUE.equals(coupon.getFirstOrderOnly()));
         result.put("discountAmount", discount);
         result.put("orderAmount", orderAmount);
         result.put("finalTotal", finalTotal);

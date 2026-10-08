@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1a2b" />
+      <stop offset="100%" stop-color="#030914" />
+    </linearGradient>
+    <linearGradient id="boxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1565c0" />
+      <stop offset="100%" stop-color="#0d47a1" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" rx="32" fill="url(#bgGrad)" />
+  <circle cx="200" cy="210" r="140" fill="#1976d2" opacity="0.15" />
+
+  <g filter="url(#shadow)">
+    <!-- Box -->
+    <rect x="110" y="90" width="180" height="210" rx="18" fill="url(#boxGrad)" />
+    
+    <!-- White Face -->
+    <rect x="120" y="120" width="160" height="165" rx="12" fill="#ffffff" />
+    
+    <!-- Header Banner -->
+    <rect x="120" y="120" width="160" height="38" rx="12" fill="#0b1a2b" />
+    <text x="200" y="144" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="13" font-weight="900" fill="#90caf9" text-anchor="middle" letter-spacing="1">FORGEWELL</text>
+    
+    <!-- Title -->
+    <text x="200" y="180" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="20" font-weight="900" fill="#0d47a1" text-anchor="middle">Active</text>
+    <text x="200" y="198" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="12" font-weight="800" fill="#1976d2" text-anchor="middle">MEN'S PERFORMANCE</text>
+    <text x="200" y="216" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="600" fill="#64b5f6" text-anchor="middle">VITAMIN & AMINO BLEND</text>
+    
+    <!-- Lightning Bolt emblem -->
+    <path d="M202 232 L192 248 H202 L198 262 L210 244 H200 Z" fill="#ffb300" stroke="#ffa000" stroke-width="1" />
+    
+    <!-- Footer -->
+    <text x="200" y="274" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="800" fill="#0b1a2b" text-anchor="middle">30 ENERGY SACHETS</text>
+  </g>
+</svg>

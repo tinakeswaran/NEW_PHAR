@@ -82,8 +82,12 @@ export const Wishlist = () => {
                 <div>
                   <div className="relative aspect-video rounded-xl bg-sand-100/70 dark:bg-forest-950/50 p-4 mb-4 border border-sand-200/60 dark:border-forest-800/50 flex items-center justify-center">
                     <img
-                      src={med.imageUrl || '/products/daily-wellness.svg'}
+                      src={med.imageUrl || '/images/medicines/placeholder.svg'}
                       alt={med.name}
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = '/images/medicines/placeholder.svg';
+                      }}
                       className="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal"
                     />
                     <button

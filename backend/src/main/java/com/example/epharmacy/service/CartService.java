@@ -65,7 +65,10 @@ public class CartService {
 
         Optional<CartItem> existingItemOpt = cartItemRepository.findByCartIdAndMedicineId(cart.getId(), medicine.getId());
         int newQuantity = request.getQuantity() + existingItemOpt.map(CartItem::getQuantity).orElse(0);
-        quantityPolicy.validate(medicine, newQuantity, hasValidPrescriptionFor(userId, medicine.getId()));
+        if (quantityPolicy.exceedsPrescriptionLimit(medicine, newQuantity)) {
+            throw new BadRequestException("Quantity limit exceeded. The maximum limit is "
+                    + quantityPolicy.getPrescriptionQuantityLimit() + " units per order.");
+        }
 
         if (medicine.getStockQuantity() < request.getQuantity()) {
             throw new BadRequestException("Requested quantity exceeds available stock (" + medicine.getStockQuantity() + ")");
@@ -101,8 +104,10 @@ public class CartService {
             cart.getItems().remove(cartItem);
             cartItemRepository.delete(cartItem);
         } else {
-            quantityPolicy.validate(cartItem.getMedicine(), quantity,
-                    hasValidPrescriptionFor(userId, cartItem.getMedicine().getId()));
+            if (quantityPolicy.exceedsPrescriptionLimit(cartItem.getMedicine(), quantity)) {
+                throw new BadRequestException("Quantity limit exceeded. The maximum limit is "
+                        + quantityPolicy.getPrescriptionQuantityLimit() + " units per order.");
+            }
             if (cartItem.getMedicine().getStockQuantity() < quantity) {
                 throw new BadRequestException("Requested quantity exceeds available stock");
             }

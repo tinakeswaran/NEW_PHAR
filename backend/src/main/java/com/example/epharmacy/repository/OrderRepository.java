@@ -20,5 +20,6 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     @Query("select o from Order o where o.prescriptionId = :prescriptionId")
     List<Order> findByPrescriptionIdForUpdate(@Param("prescriptionId") Long prescriptionId);
     boolean existsByPrescriptionIdAndOrderStatus(Long prescriptionId, OrderStatus orderStatus);
+    boolean existsByUserIdAndOrderStatusNot(Long userId, OrderStatus orderStatus);
     List<Order> findAllByOrderByCreatedAtDesc();
 }
